@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Roblox & Discord</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure custom colors and font --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rob-blue': '#00a2ff',
+                        'disc-purple': '#5865F2',
+                        'bg-dark': '#121212',
+                        'card-dark': '#1E1E1E',
+                        'brand-green': '#1f8749',
+                        'brand-red': '#cc0000',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #5865F2;
+            border-radius: 4px;
+        }
+        /* Hide modal initially but allow smooth transition */
+        .modal {
+            transition: opacity 300ms, visibility 300ms;
+        }
+        .modal:not(.open) {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Styles for the zoomable image container */
+        #modal-image {
+            transform-origin: 0 0; /* Important for consistent pan/zoom */
+            cursor: grab;
+            transition: transform 0.1s ease-out; /* Smooth movement */
+            user-select: none;
+        }
+        #modal-image.dragging {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body class="bg-bg-dark text-white font-sans min-h-screen">
+
+    <header class="py-12 bg-card-dark shadow-xl">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-extrabold tracking-tight mb-2">
+                <span class="text-rob-blue">Roblox</span> & <span class="text-disc-purple">Discord</span> Developer
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                Showcasing creative and logical creations for both Discord bots and creation of Roblox Games.
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        
+        <!-- --- New Experience Section --- --><section id="experience" class="mb-16 p-6 bg-card-dark rounded-xl shadow-lg border border-gray-700">
+            <h2 class="text-4xl font-bold mb-6 text-white border-b-2 border-white/50 pb-2">
+                Just a few Development Experience
+            </h2>
+            <ul class="space-y-4 text-gray-300 list-inside">
+                <li class="pl-6 relative before:content-['•'] before:absolute before:left-0 before:text-rob-blue before:font-extrabold">
+                    Chester, UK
+                </li>
+                <li class="pl-6 relative before:content-['•'] before:absolute before:left-0 before:text-disc-purple before:font-extrabold">
+                    Renishaw Primary
+                </li>
+                <li class="pl-6 relative before:content-['•'] before:absolute before:left-0 before:text-rob-blue before:font-extrabold">
+                    Rodent Productions
+                </li>
+                <li class="pl-6 relative before:content-['•'] before:absolute before:left-0 before:text-rob-blue before:font-extrabold">
+                    Seward, Alaska
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Discord Bot Development Section --><section id="discord" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-disc-purple border-b-2 border-disc-purple pb-2">
+                Discord Bot Development
+            </h2>
+            
+            <!-- Grid setup for a large, responsive collage (4 columns on desktop) --><div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                
+                <!-- Discord Project 1 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-disc-purple/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432075138345730098/image.png?ex=68ffbb67&is=68fe69e7&hm=15021dbf76e105c65897c9b18aeaa1d8b550bd3d290718a8916a5daa85e4e2df&=&format=webp&quality=lossless"
+                         alt="Screenshot of a Discord bot project."
+                         class="w-full h-64 object-contain transition-opacity duration-500 bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Discord+1'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Discord Project 1</p>
+                    </div>
+                </div>
+
+                <!-- Discord Project 2 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-disc-purple/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432076658440933507/image.png?ex=68ffbcd2&is=68fe6b52&hm=886d9dbfd191445175db4240d3c0dcfe413bef370e5a844e29889097e8cdc86c&=&format=webp&quality=lossless"
+                         alt="Screenshot of a custom Discord embed."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Discord+2'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Discord Project 2</p>
+                    </div>
+                </div>
+
+                <!-- Discord Project 3 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-disc-purple/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432076884744867910/image.png?ex=68ffbd08&is=68fe6b88&hm=e11fc811b083f15120b3bb550baad61741d2c280e92da16d3e47230055d9175d&=&format=webp&quality=lossless&width=687&height=1005"
+                         alt="Screenshot of a slash command interface."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Discord+3'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Discord Project 3</p>
+                    </div>
+                </div>
+
+                <!-- Discord Project 4 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-disc-purple/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432077123979444338/image.png?ex=68ffbd41&is=68fe6bc1&hm=f11580de9e5e579ae7903d8357b9e4c438739e544eac2f3a7339226d16d361a8&=&format=webp&quality=lossless"
+                         alt="Screenshot of bot logging messages."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Discord+4'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Discord Project 4</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roblox Development Section --><section id="roblox" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-rob-blue border-b-2 border-rob-blue pb-2">
+                Roblox Development
+            </h2>
+            
+            <!-- Grid setup for a large, responsive collage (4 columns on desktop) --><div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                
+                <!-- Roblox Project 1 (Small) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-rob-blue/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432078765550473438/Screenshot_2025-07-26_230610.png?ex=68ffbec8&is=68fe6d48&hm=ccc11322429af2d442e376824076e6e365e24de03ac2dce409ea7fc01efe870&=&format=webp&quality=lossless"
+                         alt="Screenshot of a Roblox game."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Roblox+1'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Roblox Project 1</p>
+                    </div>
+                </div>
+
+                <!-- Roblox Project 2 (Small) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-rob-blue/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432078766330482708/Screenshot_2025-09-18_220428.png?ex=68ffbec8&is=68fe6d48&hm=7be420e02e0028228507cc1b2c71b9f55bd5e7a306e8ff86caae0c240fb86f0c&=&format=webp&quality=lossless"
+                         alt="Screenshot of an in-game UI."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Roblox+2'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Roblox Project 2</p>
+                    </div>
+                </div>
+
+                <!-- Roblox Project 7 (LONG - Spans 2 columns) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-rob-blue/50 cursor-pointer lg:col-span-2" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432081151241097427/image.png?ex=68ffc101&is=68fe6f81&hm=76c01036ab27e96d3833799d5c069f39e9bd0cffed83b7e4cc4febad98025a05&=&format=webp&quality=lossless"
+                         alt="Screenshot of a long Roblox project overview."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x300/333333/cccccc?text=Roblox+7+Long'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Roblox Project 7 (Long)</p>
+                    </div>
+                </div>
+                
+                <!-- Roblox Project 8 (LONG - Spans 2 columns) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-rob-blue/50 cursor-pointer lg:col-span-2" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432081204600901662/image.png?ex=68ffc10d&is=68fe6f8d&hm=f65d81a237c76f2b2290d93f8082741087fec55b74c55af9501a6a31b47e9425&=&format=webp&quality=lossless"
+                         alt="Screenshot of another long Roblox project overview."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x300/333333/cccccc?text=Roblox+8+Long'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Roblox Project 8 (Long)</p>
+                    </div>
+                </div>
+
+                <!-- Roblox Project 3 (Small) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-rob-blue/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432078765898334269/Screenshot_2025-09-18_220200.png?ex=68ffbec8&is=68fe6d48&hm=3dda7e3742a4d6ea29ec5dee9fcaf023db1b248eba765bd6486fae9f476d43ab&=&format=webp&quality=lossless"
+                         alt="Screenshot of a large Roblox map build."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Roblox+3'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Roblox Project 3</p>
+                    </div>
+                </div>
+
+                <!-- Roblox Project 4 (Small) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-rob-blue/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432078766720684152/Screenshot_2025-09-27_142817.png?ex=68ffbec8&is=68fe6d48&hm=f1595490fd485af1fb25259171fe06a754ca782df4eaef1a11e0a79e26d59c3b&=&format=webp&quality=lossless"
+                         alt="Screenshot of a player avatar using a custom tool."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Roblox+4'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Roblox Project 4</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Media Images & Titles Section --><section id="media">
+            <h2 class="text-4xl font-bold mb-8 text-white border-b-2 border-white/50 pb-2">
+                Media Images & Titles
+            </h2>
+            
+            <!-- Grid setup for the media collage (4 columns on desktop) --><div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                
+                <!-- Media Long Image (Spans ALL 4 columns) --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.01] hover:shadow-white/50 cursor-pointer col-span-full" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432081587285135470/Screenshot_2025-10-26_190001.png?ex=68ffc169&is=68fe6fe9&hm=ed9b3380dd853d3af1833c30621560248b93f66de1a9a115155cbca6e5bd5d5a&=&format=webp&quality=lossless"
+                         alt="A long media asset."
+                         class="w-full h-56 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/1200x250/333333/cccccc?text=Media+Long+Error'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Media Title (Full Width)</p>
+                    </div>
+                </div>
+                
+                <!-- Media Project 1 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-white/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432082090329112777/Screenshot_2025-01-22_200834.png?ex=68ffc1e1&is=68fe7061&hm=49a783d8165a9b82f10f904ebcd5174ee1635f36259971f76adf3b57a3e29560&=&format=webp&quality=lossless"
+                         alt="Small media image 1."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Media+1+Error'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Small Media Title 1</p>
+                    </div>
+                </div>
+                
+                <!-- Media Project 2 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-white/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432082090685366484/Screenshot_2025-01-22_200902.png?ex=68ffc1e1&is=68fe7061&hm=1dc9c96c1aa7a5c46ffcb3bae878980c90500aa0323e96c70771f6dea9ffbb9c&=&format=webp&quality=lossless"
+                         alt="Small media image 2."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Media+2+Error'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Small Media Title 2</p>
+                    </div>
+                </div>
+                
+                <!-- Media Project 3 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-white/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432082092111429793/Screenshot_2025-02-17_223559.png?ex=68ffc1e1&is=68fe7061&hm=bd68c7785732dc8157584985abdbaedfe2cf52a03faf480ebf9d4d6aa98dedc9&=&format=webp&quality=lossless&width=1768&height=865"
+                         alt="Small media image 3."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Media+3+Error'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Small Media Title 3</p>
+                    </div>
+                </div>
+                
+                <!-- Media Project 4 --><div class="rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-white/50 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://media.discordapp.net/attachments/789528909750075392/1432082092958941338/Screenshot_2025-07-26_230811.png?ex=68ffc1e1&is=68fe7061&hm=13187400058fbd7e4c59dc4fada06ce618ab1896a33dafe561841fa7bedf88d0&=&format=webp&quality=lossless"
+                         alt="Small media image 4."
+                         class="w-full h-64 object-contain bg-black"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/333333/cccccc?text=Media+4+Error'">
+                    <div class="p-3 bg-card-dark">
+                        <p class="text-sm font-semibold text-gray-200">Small Media Title 4</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-card-dark py-6 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 bdebest18. All rights reserved.</p>
+            <!-- Link to open the contact modal --><p>Connect: <a href="javascript:void(0)" onclick="openContactModal()" class="text-disc-purple hover:underline">Contact Me</a></p>
+        </div>
+    </footer>
+    
+    <!-- --- IMAGE MODAL (LIGHTBOX) STRUCTURE --- --><div id="lightbox-modal" class="modal fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeImageModal()">
+        <div class="absolute inset-0 flex items-center justify-center p-8 overflow-hidden" onclick="event.stopPropagation()">
+            <!-- The actual image element where zoom/pan transforms are applied --><img id="modal-image" src="" alt="Full-screen view" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl transition-all duration-300" style="transform: scale(1) translate(0px, 0px);">
+        </div>
+        
+        <!-- Controls overlay --><div class="absolute top-4 right-4 flex space-x-2 z-50">
+            <!-- Reset Zoom Button --><button onclick="resetZoom()" class="text-white text-md font-semibold p-2 bg-gray-800/70 rounded-lg hover:bg-gray-800 transition duration-200">
+                Reset Zoom (100%)
+            </button>
+            <!-- Close Button --><button onclick="closeImageModal()" class="text-white text-3xl font-bold p-2 bg-gray-800/70 rounded-full w-10 h-10 hover:bg-gray-800 transition duration-200 flex items-center justify-center" title="Close (Esc)">
+                &times;
+            </button>
+        </div>
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 p-2 bg-gray-800/70 rounded-xl text-sm text-gray-300">
+            Scroll to Zoom | Click & Drag to Pan
+        </div>
+    </div>
+    
+    <!-- --- CONTACT MODAL STRUCTURE --- --><div id="contact-modal" class="modal fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeContactModal()">
+        <div class="bg-card-dark p-8 rounded-xl shadow-2xl w-full max-w-lg m-4 transform transition-all duration-300 scale-100" onclick="event.stopPropagation()">
+            <h3 class="text-3xl font-bold text-white mb-6 border-b border-disc-purple/50 pb-2">Get in Touch</h3>
+            
+            <div class="space-y-4">
+                <!-- Discord --><div class="flex items-center p-3 bg-bg-dark rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-disc-purple mr-4">
+                        <path d="M19.782 2.597a.5.5 0 0 0-.482-.109l-18 4a.5.5 0 0 0-.083.918l8.528 4.264 4.264 8.528a.5.5 0 0 0 .918-.083l4-18a.5.5 0 0 0-.109-.482zM12.41 12.41l-1.353-2.706 7.4-3.7-3.7 7.4-2.706-1.354z"/>
+                    </svg>
+                    <div>
+                        <p class="text-sm text-gray-400">Discord User</p>
+                        <p class="text-white font-semibold" id="discord-user">bdebest18</p>
+                    </div>
+                </div>
+
+                <!-- Roblox --><div class="flex items-center p-3 bg-bg-dark rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-rob-blue mr-4">
+                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm2.5 12.5c-.552 0-1-.448-1-1v-5c0-.552.448-1 1-1h1c.552 0 1 .448 1 1v5c0 .552-.448 1-1 1h-1zm-5 0c-.552 0-1-.448-1-1v-5c0-.552.448-1 1-1h1c.552 0 1 .448 1 1v5c0 .552-.448 1-1 1h-1z"/>
+                    </svg>
+                    <div>
+                        <p class="text-sm text-gray-400">Roblox User</p>
+                        <p class="text-white font-semibold" id="roblox-user">bdebest</p>
+                    </div>
+                </div>
+
+                <!-- Email --><div class="flex items-center p-3 bg-bg-dark rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-brand-green mr-4">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <div>
+                        <p class="text-sm text-gray-400">Email Address</p>
+                        <p class="text-white font-semibold" id="email-address">bdebest18@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="closeContactModal()" class="mt-8 w-full py-3 bg-disc-purple hover:bg-disc-purple/80 text-white font-bold rounded-lg transition duration-200 shadow-md">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- Modal State and Elements ---
+        const imageModal = document.getElementById('lightbox-modal');
+        const modalImage = document.getElementById('modal-image');
+        const contactModal = document.getElementById('contact-modal');
+        
+        let zoomLevel = 1;
+        let panX = 0;
+        let panY = 0;
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+
+        // --- Utility Functions ---
+
+        // Applies the current transform (zoom and pan) to the image
+        function applyTransform() {
+            modalImage.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
+        }
+
+        // Resets zoom and pan
+        function resetZoom() {
+            zoomLevel = 1;
+            panX = 0;
+            panY = 0;
+            applyTransform();
+        }
+
+        // --- Image Modal Logic (Zoom/Pan) ---
+        
+        function openImageModal(src) {
+            modalImage.src = src;
+            imageModal.classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+            resetZoom(); // Always reset when opening a new image
+        }
+
+        function closeImageModal() {
+            imageModal.classList.remove('open');
+            document.body.style.overflow = '';
+            modalImage.src = '';
+            resetZoom();
+        }
+        
+        // Handle Zoom (Mouse Wheel)
+        imageModal.addEventListener('wheel', (e) => {
+            if (!imageModal.classList.contains('open')) return;
+            e.preventDefault(); // Prevent page scroll
+            
+            const zoomSpeed = 0.1;
+            const direction = e.deltaY > 0 ? -1 : 1;
+            
+            let newZoom = zoomLevel + direction * zoomSpeed;
+            newZoom = Math.max(1, Math.min(5, newZoom)); // Clamp zoom between 1x and 5x
+
+            if (newZoom !== zoomLevel) {
+                // Calculate pan correction to zoom into the mouse cursor position
+                const rect = modalImage.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Scale factor change
+                const scaleChange = newZoom / zoomLevel;
+
+                // Update pan based on the new scale
+                panX = (panX * scaleChange) - (mouseX * (scaleChange - 1)) / newZoom;
+                panY = (panY * scaleChange) - (mouseY * (scaleChange - 1)) / newZoom;
+                
+                zoomLevel = newZoom;
+                applyTransform();
+            }
+        });
+
+        // Handle Pan Start (Mouse Down)
+        modalImage.addEventListener('mousedown', (e) => {
+            if (zoomLevel > 1) { // Only allow dragging if zoomed in
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                modalImage.classList.add('dragging');
+            }
+        });
+
+        // Handle Pan Move (Mouse Move)
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+
+            const dx = (e.clientX - startX) / zoomLevel;
+            const dy = (e.clientY - startY) / zoomLevel;
+
+            panX += dx;
+            panY += dy;
+
+            startX = e.clientX;
+            startY = e.clientY;
+
+            applyTransform();
+        });
+
+        // Handle Pan End (Mouse Up/Leave)
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                modalImage.classList.remove('dragging');
+            }
+        });
+        
+        // --- Contact Modal Logic ---
+        
+        function openContactModal() {
+            contactModal.classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+        }
+        
+        function closeContactModal() {
+            contactModal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close any modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeImageModal();
+                closeContactModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
